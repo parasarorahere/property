@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import './TabBarDEmo.dart';
+void main() {
+  runApp(TabBarDemo());
+}
+
+class TabBarDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.blueGrey[400],
+            actions: <Widget>[
+              Container(
+                margin: EdgeInsets.only(right: 20),
+                child:
+                  Icon(Icons.notifications_none),
+
+              ),
+            ],
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
+              ],
+            ),
+            title: Text('Tabs Demo'),
+          ),
+          body: TabBarView(
+            children: [
+              TabContent(),
+              Icon(Icons.directions_transit),
+              Icon(Icons.directions_bike),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
